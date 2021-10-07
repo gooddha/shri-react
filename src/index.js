@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Main from './pages/main';
+import Settings from './pages/settings';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Route exact path="/" component={Main} />
+    <Route path="/settings" component={Settings} />
+  </Router >,
   document.getElementById('root')
 );
+
