@@ -13,7 +13,7 @@ const Main = () => {
           <Link to="/settings"><button><span>Settings</span></button></Link>
         </div>
       </header>
-      <main>
+      <main className="main">
         <div className="proposal">
           <img src={toolsIcon} alt="tools icon" />
           <p>Configure repository connection and synchronization settings</p>

@@ -15,6 +15,7 @@ header h1 {
 }
 
 header button {
+  border: 2px solid transparent;
   background-color: #E6E6E6;
   line-height: 28px;
   padding: 0 8px;
@@ -22,6 +23,11 @@ header button {
 
 header button:hover {
   background-color: #DBDBDB;
+}
+
+header button:focus {
+  outline: none;
+  border: 2px solid #B3B3B3;
 }
 
 header button:before {
@@ -62,10 +68,16 @@ main {
   margin-bottom: 24px;
 }
 
-.proposal button {
+.proposal button {  
   background-color: #FFCC00;
+  border: 2px solid transparent;
   height: 36px;
   padding: 0 20px;  
+}
+
+.proposal button:focus {  
+  outline: none;
+  border: 2px solid #B38F00;
 }
 
 .proposal button:hover {
@@ -97,7 +109,7 @@ footer a:hover {
   color: #E00000;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 370px) {
 
   header button span {
     display: none;
