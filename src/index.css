@@ -1,0 +1,22 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'YS Text';
+  font-size: 13px;
+}
+
+.App {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 48px 1fr;
+}
+
+button {
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: 'YS text';
+}

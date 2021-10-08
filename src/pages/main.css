@@ -1,0 +1,110 @@
+.wrapper {
+  max-width: 824px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  color: #7F8285;
+}
+
+header button {
+  background-color: #E6E6E6;
+  line-height: 28px;
+  padding: 0 8px;
+}
+
+header button:hover {
+  background-color: #DBDBDB;
+}
+
+header button:before {
+  position: relative;
+    content: url('../img/cog.svg');
+    width: 12px;
+    height: 0;
+    /* margin-right: 6px; */
+    line-height: 12px;
+    top: 2px;
+}
+
+header button span {
+  margin-left: 6px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proposal {
+  max-width: 264px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proposal img {
+  width: 124px;
+  height: 124px;  
+}
+
+.proposal p {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.proposal button {
+  background-color: #FFCC00;
+  height: 36px;
+  padding: 0 20px;  
+}
+
+.proposal button:hover {
+  background-color: #F2C200;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #F0F2F3;
+  color: #7F8285;
+  line-height: 32px;
+}
+
+footer .wrapper{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer a {
+  text-decoration: none;
+  color: #7F8285;
+  padding-right: 12px;
+}
+
+footer a:hover {
+  color: #E00000;
+}
+
+@media screen and (max-width: 400px) {
+
+  header button span {
+    display: none;
+  }
+
+
+
+
+}
+  

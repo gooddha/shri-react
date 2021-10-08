@@ -8,10 +8,12 @@ import Settings from './pages/settings';
 
 
 ReactDOM.render(
-  <Router>
-    <Route exact path="/" component={Main} />
-    <Route path="/settings" component={Settings} />
-  </Router >,
+  <div className="App">
+    <Router>
+      <Route exact path="/" component={Main} />
+      <Route path="/settings" component={Settings} />
+    </Router >
+  </div>,
   document.getElementById('root')
 );
 
