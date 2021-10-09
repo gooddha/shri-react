@@ -13,20 +13,29 @@ const Settings = () => {
       <main className="settings">
         <div className="wrapper">
           <h2>Settings</h2>
-          <p>Configure repository connection and synchronization settings.</p>
+          <p className="description">Configure repository connection and synchronization settings.</p>
           <form action="">
-            <label htmlFor="github-repo">GitHub repository <span>*</span></label>
-            <input type="text" id="github-repo" required />
-            <label htmlFor="build-command">Build command <span>*</span></label>
-            <input type="text" id="build-command" required />
-            <label htmlFor="main-branch">Main branch</label>
-            <input type="text" />
+            <label htmlFor="github-repo">
+              <p>GitHub repository <span>*</span></p>
+              <input type="text" id="github-repo" required placeholder="user-name/repo-name"></input>
+              <button className="grey-button clear-input"></button>
+            </label>
+            <label htmlFor="build-command">
+              <p>Build command <span>*</span></p>
+              <input type="text" id="build-command" required placeholder="npm run build" />
+              <button className="grey-button clear-input"></button>
+            </label>
+            <label htmlFor="main-branch">
+              <p>Main branch</p>
+              <input type="text" placeholder="master" />
+              <button className="grey-button clear-input"></button>
+            </label>
             <div className="sync">
-              Synchronize every <input type="number" min="0" /> minutes
+              Synchronize every <input type="number" min="0" placeholder="10" /> minutes
             </div>
             <div className="buttons">
-              <button type="submit">Save</button>
-              <Link to="/"><button>Cancel</button></Link>
+              <button type="submit" className="yellow-button">Save</button>
+              <Link to="/"><button className="grey-button">Cancel</button></Link>
             </div>
 
           </form>

@@ -1,8 +1,103 @@
 .settings {
   display: block;
+  /* font-size: 13px; */
 }
 
 .settings form {
   display: flex;
   flex-direction: column;
+  gap: 18px;
+  /* justify-content: space-between; */
+  /* height: 220px; */
+  max-width: 480px;
 }
+
+.settings .description {
+  color: #7F8285;
+}
+
+.settings label p {
+  margin: 6px 0;
+}
+
+.settings label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.settings label span {
+  color: #FF3333;
+}
+
+.settings input {
+  border-radius: 4px;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 10px 13px;  
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  border: 2px solid #d9d9d9; /* Here */
+}
+
+.settings input::placeholder {
+  color: #d9d9d9;
+}
+
+.settings input:focus {
+  border: 2px solid #B3B3B3;
+  outline: none;
+}
+
+.settings .clear-input {
+  background-color: white;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background-image: url('../img/clear-input.svg');
+  background-size: cover;
+}
+
+.settings .clear-input:focus {
+  border: 2px solid #838383;
+}
+
+.settings input[type=number] {
+  text-align: right;
+  width: 50px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.settings button {
+  padding: 10px 20px;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+@media screen and (max-width: 370px) {
+
+  .settings .buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .settings button {
+    width: 100%;
+  }
+
+}
+  

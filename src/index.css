@@ -14,10 +14,42 @@ body {
   grid-template-rows: 48px 1fr;
 }
 
-button {
-  border-radius: 4px;
-  border: 2px solid transparent;
+.grey-button,
+.yellow-button {
+  border-radius: 4px;  
   border: none;
   cursor: pointer;
-  font-family: 'YS text';
+  font-family: 'YS text';  
+  border: 2px solid transparent;  
+  outline: none;
+  background-color: white;
+}
+
+.App .grey-button:active,
+.App .yellow-button:active {
+  border: 2px solid transparent;  
+}
+
+.App .grey-button {
+  background-color: #E6E6E6;
+}
+
+.grey-button:hover { 
+  background-color: #DBDBDB;
+}
+
+.grey-button:focus {
+   border: 2px solid #B3B3B3;
+}
+
+.yellow-button {
+  background-color: #FFCC00;
+}
+
+.yellow-button:hover {
+  background-color: #F2C200;
+}
+
+.yellow-button:focus {
+  border: 2px solid #B38F00;
 }
