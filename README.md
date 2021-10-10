@@ -1,4 +1,4 @@
-This repos is made for home task on yandex shri react lesson.
+This repos is made for home task on yandex shri react lesson. + redux
 
 npm start
 
