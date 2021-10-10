@@ -46,6 +46,21 @@ const BuildHystory = () => {
             <button className="grey-button ">Show more</button>
           </div>
         </div>
+
+        <div className="modal-container style=">
+          <div className="modal">
+            <h2>New build</h2>
+            <p>Enter commit hash which you want to build</p>
+            <label htmlFor="build-command">
+              <input type="text" id="build-command" required placeholder="Commit hash" />
+              <button className="grey-button clear-input"></button>
+            </label>
+            <div className="buttons">
+              <button type="submit" className="yellow-button">Run build</button>
+              <Link to="/"><button className="grey-button">Cancel</button></Link>
+            </div>
+          </div>
+        </div>
       </main>
       <footer>
         <div className="wrapper">

@@ -145,6 +145,80 @@ header .buttons .settings-button:before {
   padding: 0 13px;
 }
 
+.modal-container {
+  width: 100vw;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #00000075;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  width: 60%;
+  min-width: 200px;
+  max-width: 485px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.modal input {
+  width: 100%;
+  border-radius: 4px;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 10px 13px;  
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  border: 2px solid #d9d9d9; /* Here */
+}
+
+.modal input::placeholder {
+  color: #d9d9d9;
+}
+
+.modal input:focus {
+  border: 2px solid #B3B3B3;
+  outline: none;
+}
+
+.modal label {
+  position: relative;
+}
+
+.modal .clear-input {
+  background-color: white;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background-image: url('../img/clear-input.svg');
+  background-size: cover;
+}
+
+.modal .clear-input:focus {
+  border: 2px solid #838383;
+}
+
+.modal button {
+  padding: 10px 20px;
+  margin-top: 12px;
+}
+
+
+
 @media screen and (max-width: 550px) {
 
   header button span {
@@ -167,6 +241,16 @@ header .buttons .settings-button:before {
     flex-direction: row;
     margin-left: 0;
     border-top: 1px solid #8080804a;
+    padding-top: 8px;
+  }
+
+  .modal .buttons {
+    flex-direction: column;
+  }
+
+  .modal .buttons .grey-button {
+    width: 100%;
+    margin-top: 0;
   }
 
 }
