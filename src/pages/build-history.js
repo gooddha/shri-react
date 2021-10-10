@@ -7,6 +7,7 @@ import Modal from '../components/Modal'
 
 const BuildHistory = (props) => {
 
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const { builds, setBuilds } = props.build;
 
@@ -16,6 +17,7 @@ const BuildHistory = (props) => {
   }
 
   const handleShowMore = (e) => {
+    setLoading(true);
     const randValue = (arr) => {
       return arr[Math.floor(Math.random() * arr.length)]
     }
@@ -31,21 +33,28 @@ const BuildHistory = (props) => {
       'Form item has default height align with form size'
     ];
 
-    setBuilds(builds => {
-      return [
-        ...builds,
-        {
-          status: randValue(statuses),
-          number: "1386",
-          description: randValue(descriptions),
-          branch: "master",
-          hash: "9c9f0b9",
-          author: "Philip Kirkorov",
-          date: "21 янв, 03:06",
-          time: "1 ч 20 мин",
-        }
-      ]
-    })
+    setTimeout(() => {
+      setLoading(false);
+      setBuilds(builds => {
+        return [
+          ...builds,
+          {
+            status: randValue(statuses),
+            number: "1386",
+            description: randValue(descriptions),
+            branch: "master",
+            hash: "9c9f0b9",
+            author: "Philip Kirkorov",
+            date: "21 янв, 03:06",
+            time: "1 ч 20 мин",
+          }
+        ]
+      });
+    }, 1500);
+
+
+
+
   }
 
   const buildItems = builds.map(({ status, number, description, branch, hash, author, date, time }, i) => {
@@ -77,7 +86,7 @@ const BuildHistory = (props) => {
         <div className="wrapper">
           <div className="build-items">
             {buildItems}
-            <button className="grey-button" onClick={handleShowMore}>Show more</button>
+            <button className="grey-button" disabled={loading} onClick={handleShowMore}>Show more</button>
           </div>
         </div>
         {showModal ? <Modal setModal={setShowModal} /> : null}

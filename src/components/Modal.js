@@ -1,12 +1,20 @@
+import { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 const Modal = (props) => {
 
   const { setModal } = props;
+  const [inputValue, setInputValue] = useState('');
 
-  const handleCancel = () => {
+  const handleChange = useCallback((e) => {
+    let newValue = e.target.value;
+
+    setInputValue(newValue);
+  }, []);
+
+  const handleCancel = useCallback(() => {
     setModal(false);
-  }
+  }, [])
 
 
   return (
@@ -15,7 +23,14 @@ const Modal = (props) => {
         <h2>New build</h2>
         <p>Enter commit hash which you want to build</p>
         <label htmlFor="build-command">
-          <input type="text" id="build-command" required placeholder="Commit hash" />
+          <input
+            type="text"
+            id="build-command"
+            required
+            placeholder="Commit hash"
+            onChange={handleChange}
+            value={inputValue}
+          />
           <button className="grey-button clear-input"></button>
         </label>
         <div className="buttons">

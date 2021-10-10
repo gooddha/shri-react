@@ -25,6 +25,7 @@ body {
   background-color: white;
 }
 
+
 .App .grey-button:active,
 .App .yellow-button:active {
   border: 2px solid transparent;  
@@ -52,4 +53,10 @@ body {
 
 .yellow-button:focus {
   border: 2px solid #B38F00;
+}
+
+.settings button:disabled,
+.build-history button:disabled {
+  color: #7F7F7F;
+  background-color: #F2F2F2;
 }

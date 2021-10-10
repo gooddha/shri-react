@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './settings.css'
@@ -9,10 +9,8 @@ const Settings = (props) => {
   const { formState, setFormState } = props.settings;
   const { setIsSettingsSaved } = props;
 
-  console.log(formState);
 
-
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     let newValue = e.target.value;
     if (e.target.name == 'syncTime') {
       newValue = String(newValue).replace(/\D/g, '');
@@ -25,9 +23,9 @@ const Settings = (props) => {
       }
       return { ...prevState, ...updatedValues };
     });
-  }
+  }, []);
 
-  const handleClear = (e) => {
+  const handleClear = useCallback((e) => {
     e.preventDefault();
     setFormState(prevState => {
       let updatedValues = {
@@ -36,21 +34,37 @@ const Settings = (props) => {
       }
       return { ...prevState, ...updatedValues };
     });
-  }
+  }, []);
 
-  const handleSave = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSave = useCallback((e) => {
     e.preventDefault();
 
     if (formState.repo.length > 0 && formState.buildCommand.length > 0) {
+      setLoading(true);
 
-      setIsSettingsSaved(true);
+      setTimeout(() => {
+        let loadingResult = [true, false][Math.floor(Math.random() * 2)];
+        setLoading(false);
 
-      history.push('/');
+        if (loadingResult) {
+          setIsSettingsSaved(true);
+          history.push('/');
+        } else {
+          alert('Error while loading');
+        }
+      }, 2000)
+
     } else {
       alert('Заполните все поля со здвездочкой');
     }
-  }
+  }, [formState]);
 
+
+
+
+  // Пробовал сделать компонент для инпута
   // const InputText = ({ id, title, name, isRequired, placeholder, value, buttonType }) => {
   //   let req = isRequired ? 'required' : ''
   //   return (
@@ -85,16 +99,6 @@ const Settings = (props) => {
           <h2>Settings</h2>
           <p className="description">Configure repository connection and synchronization settings.</p>
           <form action="">
-            {/*  
-            <InputText
-              id="github-repo"
-              title="GitHub repository"
-              name="repo"
-              isRequired={true}
-              placeholder="user-name/repo-name"
-              value={formState.repo}
-              buttonType="grey"
-            />*/}
             <label htmlFor="github-repo">
               <p>GitHub repository <span>*</span></p>
               <input
@@ -160,8 +164,9 @@ const Settings = (props) => {
                 type="submit"
                 className="yellow-button"
                 onClick={handleSave}
+                disabled={loading}
               >Save</button>
-              <Link to="/"><button className="grey-button">Cancel</button></Link>
+              <Link to="/"><button className="grey-button" disabled={loading}>Cancel</button></Link>
             </div>
 
           </form>
