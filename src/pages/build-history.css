@@ -145,7 +145,7 @@ header .buttons .settings-button:before {
 }
 
 .modal-container {
-  display:none;
+  /* display:none; */
   width: 100vw;
   position: absolute;
   height: 100vh;

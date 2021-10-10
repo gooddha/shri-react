@@ -5,28 +5,29 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from '../pages/main';
 import Settings from '../pages/settings';
 import BuildHistory from '../pages/build-history';
+import Footer from '../components/Footer'
 
 const App = () => {
 
-  const [state, setState] = useState({
-    isSettingsSet: false,
-    values: {
-      repo: '',
-      buildCommand: '',
-      mainBranch: '',
-      syncTime: 10
-    }
+  const [isSettingsSaved, setIsSettingsSaved] = useState(false);
+
+  const [formState, setFormState] = useState({
+    repo: '',
+    buildCommand: '',
+    mainBranch: '',
+    syncTime: 10
   });
 
-  const content = state.isSettingsSet ? BuildHistory : Main;
+  const content = isSettingsSaved ? BuildHistory : Main;
 
   return (
     <div className="App">
       <Router>
         <Route exact path="/" component={content} />
         <Route path="/settings">
-          <Settings settings={{ state, setState }} />
+          <Settings settings={{ formState, setFormState }} setIsSettingsSaved={setIsSettingsSaved} />
         </Route>
+        <Footer />
       </Router >
     </div>
   )

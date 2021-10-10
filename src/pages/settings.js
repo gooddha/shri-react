@@ -1,18 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './settings.css'
 
 const Settings = (props) => {
+  let history = useHistory();
 
-  const { state, setState } = props.settings;
+  const { formState, setFormState } = props.settings;
+  const { setIsSettingsSaved } = props;
+
+  console.log(formState);
+
 
   const handleChange = (e) => {
-    setState(prevState => {
+    let newValue = e.target.value;
+    if (e.target.name == 'syncTime') {
+      newValue = String(newValue).replace(/\D/g, '');
+    }
+
+    setFormState(prevState => {
       let updatedValues = {
-        values: {
-          ...prevState.values,
-          [e.target.name]: e.target.value
-        }
+        ...prevState,
+        [e.target.name]: newValue
       }
       return { ...prevState, ...updatedValues };
     });
@@ -20,12 +29,10 @@ const Settings = (props) => {
 
   const handleClear = (e) => {
     e.preventDefault();
-    setState(prevState => {
+    setFormState(prevState => {
       let updatedValues = {
-        values: {
-          ...prevState.values,
-          [e.target.name]: ''
-        }
+        ...prevState.values,
+        [e.target.name]: ''
       }
       return { ...prevState, ...updatedValues };
     });
@@ -34,20 +41,14 @@ const Settings = (props) => {
   const handleSave = (e) => {
     e.preventDefault();
 
-    if (state.values.repo.length > 0 && state.values.buildCommand.length > 0) {
+    if (formState.repo.length > 0 && formState.buildCommand.length > 0) {
 
-      setState(prevState => {
-        let updatedValues = {
-          isSettingsSet: true
-        }
-        return { ...prevState, ...updatedValues };
-      });
+      setIsSettingsSaved(true);
 
-      window.history.pushState(null, '', '/');
+      history.push('/');
     } else {
       alert('Заполните все поля со здвездочкой');
     }
-
   }
 
   return (
@@ -70,7 +71,7 @@ const Settings = (props) => {
                 name="repo"
                 required
                 placeholder="user-name/repo-name"
-                value={state.values.repo}
+                value={formState.repo}
                 onChange={handleChange}
               />
               <button
@@ -87,7 +88,7 @@ const Settings = (props) => {
                 name="buildCommand"
                 required
                 placeholder="npm run build"
-                value={state.values.buildCommand}
+                value={formState.buildCommand}
                 onChange={handleChange}
               />
               <button
@@ -103,7 +104,7 @@ const Settings = (props) => {
                 id="main-branch"
                 name="mainBranch"
                 placeholder="master"
-                value={state.values.mainBranch}
+                value={formState.mainBranch}
                 onChange={handleChange}
               />
               <button
@@ -118,7 +119,7 @@ const Settings = (props) => {
                 min="0"
                 placeholder="10"
                 name="syncTime"
-                value={state.values.syncTime}
+                value={formState.syncTime}
                 onChange={handleChange}
               /> minutes
             </div>
@@ -134,16 +135,7 @@ const Settings = (props) => {
           </form>
         </div>
       </main>
-      <footer>
-        <div className="wrapper">
-          <div className="links">
-            <a href="#">Support</a>
-            <a href="#">Learning</a>
-            <a href="#">Русская версия</a>
-          </div>
-          <div className="copyright">© 2021 Your Name</div>
-        </div>
-      </footer>
+
     </>
   )
 }
