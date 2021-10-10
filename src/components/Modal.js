@@ -16,11 +16,11 @@ const Modal = (props) => {
     } else {
       alert('Enter commit hash value');
     }
-  }, [inputValue])
+  }, [inputValue]);
 
   const handleCancel = useCallback(() => {
     setModal(false);
-  }, [])
+  }, []);
 
 
   return (
