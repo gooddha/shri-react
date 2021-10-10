@@ -140,12 +140,12 @@ header .buttons .settings-button:before {
 }
 
 .build-items button {
-  margin-top: 8px;
   line-height: 28px;
   padding: 0 13px;
 }
 
 .modal-container {
+  display:none;
   width: 100vw;
   position: absolute;
   height: 100vh;

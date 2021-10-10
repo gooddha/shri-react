@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import './build-hystory.css'
+import './build-history.css'
 
-const BuildHystory = () => {
+const BuildHistory = () => {
+
+  const handleBuild = (e) => {
+    e.preventDefault()
+    console.log('run build');
+  }
 
   return (
     <>
@@ -10,7 +15,7 @@ const BuildHystory = () => {
         <div className="wrapper">
           <h1>philip1967/my-awesome-repo</h1>
           <div className="buttons">
-            <Link to="/build-hystory"><button className="grey-button run-button"><span>Run build</span></button></Link>
+            <button className="grey-button run-button" onClick={handleBuild}><span>Run build</span></button>
             <Link to="/settings"><button className="grey-button settings-button"></button></Link>
           </div>
         </div>
@@ -125,4 +130,4 @@ const BuildHystory = () => {
   )
 }
 
-export default BuildHystory;
+export default BuildHistory;
