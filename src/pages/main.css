@@ -10,10 +10,6 @@ header .wrapper{
   justify-content: space-between;
 }
 
-main {
-  margin-top: 20px;
-}
-
 header h1 {
   color: #7F8285;
 }

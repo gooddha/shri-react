@@ -32,6 +32,13 @@ header .buttons .settings-button:before {
   margin-bottom: 8px;
 }
 
+.build-info-container {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 8px;
+}
+
 .build-item.status-ok .status-icon {
   content: url('../img/status-ok.svg');
 }
@@ -84,6 +91,11 @@ header .buttons .settings-button:before {
   align-items: baseline;
 }
 
+.commit-info {
+  display: flex;
+  gap: 8px
+}
+
 .build-item .hash {
   opacity: 0.65;
   margin-right: 10px;
@@ -127,8 +139,35 @@ header .buttons .settings-button:before {
   content: url('../img/timewatch.svg');
 }
 
-
-
 .build-items button {
   margin-top: 8px;
+  line-height: 28px;
+  padding: 0 13px;
 }
+
+@media screen and (max-width: 550px) {
+
+  header button span {
+    display: none;
+  }
+
+  .build-info-container,
+  .build-item .header,
+  .build-item .info {
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: inherit;
+  }
+
+  .build-item .details {
+    flex-direction: column;
+  }
+
+  .build-item .datetime {
+    flex-direction: row;
+    margin-left: 0;
+    border-top: 1px solid #8080804a;
+  }
+
+}
+  
