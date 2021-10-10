@@ -19,6 +19,7 @@ const BuildHistory = (props) => {
     const randValue = (arr) => {
       return arr[Math.floor(Math.random() * arr.length)]
     }
+
     let statuses = ['ok', 'error', 'pending'];
     let descriptions = [
       'add documentation for postgres scaler',
@@ -29,6 +30,7 @@ const BuildHistory = (props) => {
       'improved accessibility',
       'Form item has default height align with form size'
     ];
+
     setBuilds(builds => {
       return [
         ...builds,
@@ -80,7 +82,6 @@ const BuildHistory = (props) => {
         </div>
         {showModal ? <Modal setModal={setShowModal} /> : null}
       </main>
-
     </>
   )
 }

@@ -10,14 +10,12 @@ import Footer from '../components/Footer'
 const App = () => {
 
   const [isSettingsSaved, setIsSettingsSaved] = useState(false);
-
   const [formState, setFormState] = useState({
     repo: '',
     buildCommand: '',
     mainBranch: '',
     syncTime: 10
   });
-
   const [builds, setBuilds] = useState([
     {
       status: "ok",
@@ -29,9 +27,7 @@ const App = () => {
       date: "21 янв, 03:06",
       time: "1 ч 20 мин",
     }
-  ])
-
-  const content = isSettingsSaved ? BuildHistory : Main;
+  ]);
 
   return (
     <div className="App">
@@ -45,7 +41,7 @@ const App = () => {
         <Footer />
       </Router >
     </div>
-  )
+  );
 }
 
 export default App;
