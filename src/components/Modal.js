@@ -11,7 +11,6 @@ const Modal = (props) => {
   }, []);
 
   const handleRunBuild = useCallback((e) => {
-    console.log(inputValue);
     if (inputValue.length > 0) {
       setModal(false);
     } else {
