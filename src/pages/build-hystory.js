@@ -42,6 +42,54 @@ const BuildHystory = () => {
                 </div>
               </div>
             </div>
+            <div className="build-item status-error">
+              <div className="status-icon-container">
+                <div className="status-icon"></div>
+              </div>
+              <div className="build-info-container">
+                <div className="info">
+                  <div className="header">
+                    <div className="number">#1368</div>
+                    <div className="description">add documentation for postgres scaler</div>
+                  </div>
+                  <div className="details">
+                    <div className="commit-info">
+                      <div className="branch">master</div>
+                      <div className="hash">9c9f0b9</div>
+                    </div>
+                    <div className="author">Philip Kirkorov</div>
+                  </div>
+                </div>
+                <div className="datetime">
+                  <div className="date">21 янв, 03:06</div>
+                  <div className="time">1 ч 20 мин</div>
+                </div>
+              </div>
+            </div>
+            <div className="build-item status-pending">
+              <div className="status-icon-container">
+                <div className="status-icon"></div>
+              </div>
+              <div className="build-info-container">
+                <div className="info">
+                  <div className="header">
+                    <div className="number">#1368</div>
+                    <div className="description">add documentation for postgres scaler</div>
+                  </div>
+                  <div className="details">
+                    <div className="commit-info">
+                      <div className="branch">master</div>
+                      <div className="hash">9c9f0b9</div>
+                    </div>
+                    <div className="author">Philip Kirkorov</div>
+                  </div>
+                </div>
+                <div className="datetime">
+                  <div className="date">21 янв, 03:06</div>
+                  <div className="time">1 ч 20 мин</div>
+                </div>
+              </div>
+            </div>
 
             <button className="grey-button ">Show more</button>
           </div>

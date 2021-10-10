@@ -213,8 +213,19 @@ header .buttons .settings-button:before {
 }
 
 .modal button {
+  box-sizing: border-box;
   padding: 10px 20px;
   margin-top: 12px;
+  border: 
+}
+
+.modal .buttons .grey-button {
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);  
+}
+
+.modal .buttons .grey-button:focus {  
+  border: 2px solid #B3B3B3;
 }
 
 
