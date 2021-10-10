@@ -51,10 +51,6 @@ const BuildHistory = (props) => {
         ]
       });
     }, 1500);
-
-
-
-
   }
 
   const buildItems = builds.map(({ status, number, description, branch, hash, author, date, time }, i) => {

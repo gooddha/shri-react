@@ -7,10 +7,17 @@ const Modal = (props) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = useCallback((e) => {
-    let newValue = e.target.value;
-
-    setInputValue(newValue);
+    setInputValue(e.target.value);
   }, []);
+
+  const handleRunBuild = useCallback((e) => {
+    console.log(inputValue);
+    if (inputValue.length > 0) {
+      setModal(false);
+    } else {
+      alert('Enter commit hash value');
+    }
+  }, [inputValue])
 
   const handleCancel = useCallback(() => {
     setModal(false);
@@ -34,7 +41,7 @@ const Modal = (props) => {
           <button className="grey-button clear-input"></button>
         </label>
         <div className="buttons">
-          <button type="submit" className="yellow-button" onClick={handleCancel}>Run build</button>
+          <button type="submit" className="yellow-button" onClick={handleRunBuild}>Run build</button>
           <Link to="/"><button className="grey-button" onClick={handleCancel}>Cancel</button></Link>
         </div>
       </div>
