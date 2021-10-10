@@ -10,6 +10,10 @@ header .wrapper{
   justify-content: space-between;
 }
 
+main {
+  margin-top: 20px;
+}
+
 header h1 {
   color: #7F8285;
 }
@@ -21,19 +25,16 @@ header h1 {
 
 
 header button:before {
-  position: relative;
-    content: url('../img/cog.svg');
-    width: 12px;
-    height: 0;
-    line-height: 12px;
-    top: 2px;
+  content: url('../img/cog.svg');
+  height: 12px;
+  vertical-align: middle;
 }
 
 header button span {
   margin-left: 6px;
 }
 
-main {
+.main {
   display: flex;
   align-items: center;
   justify-content: center;

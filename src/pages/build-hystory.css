@@ -1,0 +1,134 @@
+header h1 {
+  color: black;
+}
+
+header .buttons .run-button:before, 
+header .buttons .settings-button:before {  
+  height: 12px;
+  vertical-align: middle;
+}
+
+header .buttons .run-button:before {
+  content: url('../img/run.svg');
+}
+
+header .buttons .settings-button:before {
+  content: url('../img/cog.svg');
+}
+
+/* .build-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+} */
+
+.build-item {
+  display: flex;  
+  padding: 12px 24px;
+  gap: 12px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+  margin-bottom: 8px;
+}
+
+.build-item.status-ok .status-icon {
+  content: url('../img/status-ok.svg');
+}
+
+.build-item.status-error .status-icon {
+  content: url('../img/status-error.svg');
+}
+
+.build-item.status-pending .status-icon {
+  content: url('../img/status-pending.svg');
+}
+
+.build-item.status-ok .number {
+  color: #00b341;
+} 
+
+.build-item.status-error .number {
+  color: #ff3333;
+} 
+
+.build-item.status-pending .number {
+  color: #ff9a01;
+} 
+
+
+.build-item .info, 
+.build-item .datetime {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.build-item .header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.build-item .number {
+  font-size: 18px;
+}
+
+.build-item .description {
+  font-size: 15px;
+}
+
+.build-item .details {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.build-item .hash {
+  opacity: 0.65;
+  margin-right: 10px;
+}
+
+.build-item .branch:before,
+.build-item .author:before,
+.build-item .date:before,
+.build-item .time:before {
+  opacity: 0.3;
+}
+
+
+.build-item .branch::before {
+  content: url('../img/branch.svg');
+  height: 8px;
+}
+
+.build-item .author:before {
+  content: url('../img/user.svg');
+  height: 12px;
+}
+
+.build-item .datetime {
+  margin-left: auto;
+}
+.build-item .author:before,
+.build-item .date:before,
+.build-item .time:before {
+  height: 16px;
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+
+.build-item .date:before {
+  content: url('../img/calendar.svg');
+}
+
+.build-item .time:before {
+  content: url('../img/timewatch.svg');
+}
+
+
+
+.build-items button {
+  margin-top: 8px;
+}
