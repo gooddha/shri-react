@@ -5,23 +5,10 @@ import './build-history.css'
 import BuildItem from '../components/BuildItem';
 import Modal from '../components/Modal'
 
-
-
-const BuildHistory = () => {
+const BuildHistory = (props) => {
 
   const [showModal, setShowModal] = useState(false);
-  const [builds, setBuilds] = useState([
-    {
-      status: "ok",
-      number: "1386",
-      description: "add documentation for postgres scaler",
-      branch: "master",
-      hash: "9c9f0b9",
-      author: "Philip Kirkorov",
-      date: "21 янв, 03:06",
-      time: "1 ч 20 мин",
-    }
-  ])
+  const { builds, setBuilds } = props.build;
 
   const handleBuild = (e) => {
     e.preventDefault()
@@ -91,9 +78,7 @@ const BuildHistory = () => {
             <button className="grey-button" onClick={handleShowMore}>Show more</button>
           </div>
         </div>
-
         {showModal ? <Modal setModal={setShowModal} /> : null}
-
       </main>
 
     </>

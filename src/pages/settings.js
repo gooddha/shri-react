@@ -51,6 +51,28 @@ const Settings = (props) => {
     }
   }
 
+  // const InputText = ({ id, title, name, isRequired, placeholder, value, buttonType }) => {
+  //   let req = isRequired ? 'required' : ''
+  //   return (
+  //     <label htmlFor={id}>
+  //       <p>{title}<span> *</span></p>
+  //       <input
+  //         type="text"
+  //         id={id}
+  //         name={name}
+  //         placeholder={placeholder}
+  //         value={formState[name]}
+  //         onChange={handleChange}
+  //       />
+  //       <button
+  //         className={buttonType + "-button clear-input"}
+  //         name={name}
+  //         onClick={handleClear}
+  //       ></button>
+  //     </label>
+  //   )
+  // }
+
   return (
     <>
       <header>
@@ -63,6 +85,16 @@ const Settings = (props) => {
           <h2>Settings</h2>
           <p className="description">Configure repository connection and synchronization settings.</p>
           <form action="">
+            {/*  
+            <InputText
+              id="github-repo"
+              title="GitHub repository"
+              name="repo"
+              isRequired={true}
+              placeholder="user-name/repo-name"
+              value={formState.repo}
+              buttonType="grey"
+            />*/}
             <label htmlFor="github-repo">
               <p>GitHub repository <span>*</span></p>
               <input
