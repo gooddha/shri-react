@@ -1,13 +1,14 @@
 import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './settings.css'
 
 const Settings = (props) => {
-  let history = useHistory();
+  const dispatch = useDispatch()
+  const history = useHistory();
 
   const { formState, setFormState } = props.settings;
-  const { setIsSettingsSaved } = props;
 
 
   const handleChange = useCallback((e) => {
@@ -49,7 +50,7 @@ const Settings = (props) => {
         setLoading(false);
 
         if (loadingResult) {
-          setIsSettingsSaved(true);
+          dispatch({ type: 'save-settings' })
           history.push('/');
         } else {
           alert('Error while loading');

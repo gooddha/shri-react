@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import '../index.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-import Main from '../pages/main';
-import Settings from '../pages/settings';
-import BuildHistory from '../pages/build-history';
-import Footer from '../components/Footer'
+import './App.css';
+import { useSelector } from 'react-redux';
+import Main from './pages/main';
+import Settings from './pages/settings';
+import BuildHistory from './pages/build-history';
+import Footer from './components/Footer';
 
 const App = () => {
 
-  const [isSettingsSaved, setIsSettingsSaved] = useState(false);
+  const isSettingsSaved = useSelector((state) => state.isSettingsSaved);
+
   const [formState, setFormState] = useState({
     repo: '',
     buildCommand: '',
@@ -36,7 +37,7 @@ const App = () => {
           {isSettingsSaved ? <BuildHistory build={{ builds, setBuilds }} /> : <Main />}
         </Route>
         <Route path="/settings">
-          <Settings settings={{ formState, setFormState }} setIsSettingsSaved={setIsSettingsSaved} />
+          <Settings settings={{ formState, setFormState }} />
         </Route>
         <Footer />
       </Router >
