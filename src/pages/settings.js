@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './settings.css'
@@ -8,33 +8,41 @@ const Settings = (props) => {
   const dispatch = useDispatch()
   const history = useHistory();
 
-  const { formState, setFormState } = props.settings;
-
+  const formState = useSelector((state) => state.formState);
 
   const handleChange = useCallback((e) => {
+
     let newValue = e.target.value;
     if (e.target.name == 'syncTime') {
       newValue = String(newValue).replace(/\D/g, '');
     }
 
-    setFormState(prevState => {
-      let updatedValues = {
-        ...prevState,
-        [e.target.name]: newValue
+    dispatch({
+      type: 'change-value',
+      payload: {
+        name: e.target.name,
+        value: newValue
       }
-      return { ...prevState, ...updatedValues };
     });
+
+    // setFormState(prevState => {
+    //   let updatedValues = {
+    //     ...prevState,
+    //     [e.target.name]: newValue
+    //   }
+    //   return { ...prevState, ...updatedValues };
+    // });
   }, []);
 
   const handleClear = useCallback((e) => {
     e.preventDefault();
-    setFormState(prevState => {
-      let updatedValues = {
-        ...prevState.values,
-        [e.target.name]: ''
+    dispatch({
+      type: 'clear-value',
+      payload: {
+        name: e.target.name
       }
-      return { ...prevState, ...updatedValues };
     });
+
   }, []);
 
   const [loading, setLoading] = useState(false);

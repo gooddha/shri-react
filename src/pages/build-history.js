@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import './build-history.css'
-
 import BuildItem from '../components/BuildItem';
 import Modal from '../components/Modal'
 
 const BuildHistory = (props) => {
+  const dispatch = useDispatch();
+  const builds = useSelector((state) => state.builds);
 
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const { builds, setBuilds } = props.build;
 
   const handleBuild = (e) => {
     e.preventDefault()
@@ -35,20 +36,18 @@ const BuildHistory = (props) => {
 
     setTimeout(() => {
       setLoading(false);
-      setBuilds(builds => {
-        return [
-          ...builds,
-          {
-            status: randValue(statuses),
-            number: "1386",
-            description: randValue(descriptions),
-            branch: "master",
-            hash: "9c9f0b9",
-            author: "Philip Kirkorov",
-            date: "21 янв, 03:06",
-            time: "1 ч 20 мин",
-          }
-        ]
+      dispatch({
+        type: 'add-build',
+        payload: {
+          status: randValue(statuses),
+          number: "1386",
+          description: randValue(descriptions),
+          branch: "master",
+          hash: "9c9f0b9",
+          author: "Philip Kirkorov",
+          date: "21 янв, 03:06",
+          time: "1 ч 20 мин",
+        }
       });
     }, 1500);
 

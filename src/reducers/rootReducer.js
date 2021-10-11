@@ -5,11 +5,27 @@ export default function (state, action) {
         ...state,
         isSettingsSaved: true
       };
-    case 'NEW_POST':
+    case 'change-value':
       return {
         ...state,
-        item: action.payload
+        formState: {
+          ...state.formState,
+          [action.payload.name]: action.payload.value
+        }
       };
+    case 'clear-value':
+      return {
+        ...state,
+        formState: {
+          ...state.formState,
+          [action.payload.name]: ''
+        }
+      };
+    case 'add-build':
+      return {
+        ...state,
+        builds: [...state.builds, action.payload]
+      }
     default:
       return state;
   }

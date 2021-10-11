@@ -11,33 +11,14 @@ const App = () => {
 
   const isSettingsSaved = useSelector((state) => state.isSettingsSaved);
 
-  const [formState, setFormState] = useState({
-    repo: '',
-    buildCommand: '',
-    mainBranch: '',
-    syncTime: 10
-  });
-  const [builds, setBuilds] = useState([
-    {
-      status: "ok",
-      number: "1386",
-      description: "add documentation for postgres scaler",
-      branch: "master",
-      hash: "9c9f0b9",
-      author: "Philip Kirkorov",
-      date: "21 янв, 03:06",
-      time: "1 ч 20 мин",
-    }
-  ]);
-
   return (
     <div className="App">
       <Router>
         <Route exact path="/">
-          {isSettingsSaved ? <BuildHistory build={{ builds, setBuilds }} /> : <Main />}
+          {isSettingsSaved ? <BuildHistory /> : <Main />}
         </Route>
         <Route path="/settings">
-          <Settings settings={{ formState, setFormState }} />
+          <Settings />
         </Route>
         <Footer />
       </Router >
